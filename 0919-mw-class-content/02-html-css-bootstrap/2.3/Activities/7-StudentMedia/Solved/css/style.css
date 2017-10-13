@@ -1,0 +1,87 @@
+/**
+ * Media Query Style Exercise: Solved;
+ **/
+
+* {
+  box-sizing: border-box;
+}
+body {
+	background: #ccc;
+	font-size: 18px;
+	line-height: 27px;
+}
+.wrapper {
+	width: 1024px;
+	margin: 40px auto;
+}
+#main-content,
+#sidebar {
+	width: 500px;
+	padding: 30px;
+}
+#main-content {
+	float: left;
+	background: #fff;
+}
+#sidebar {
+	float: right;
+	background: #eee;
+}
+
+@media screen and (max-width: 768px) {
+
+	body {
+		background-color: #333;
+	}
+	.wrapper {
+		width: 100%;
+		padding: 20px;
+	}
+	#main-content,
+	#sidebar {
+		width: 100%;
+	}
+	#sidebar {
+		margin-top: 40px;
+	}
+}
+
+/* Additional Screen Sizes */
+
+/* Width at 320px and below */
+@media screen and (max-width: 320px) {
+
+	body {
+		background-color: #333;
+	}
+	.wrapper {
+		width: 100%;
+		padding: 20px;
+	}
+	#main-content,
+	#sidebar {
+		width: 100%;
+	}
+	#sidebar {
+		margin-top: 40px;
+	}
+}
+
+/* Width at 168px and below */
+@media screen and (max-width: 168px) {
+
+	body {
+		background-color: #333;
+	}
+	.wrapper {
+		width: 100%;
+		padding: 20px;
+	}
+	#main-content,
+	#sidebar {
+		width: 100%;
+	}
+	#sidebar {
+		margin-top: 40px;
+	}
+}

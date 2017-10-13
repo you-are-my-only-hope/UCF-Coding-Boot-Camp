@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Psychic Game</title>
+</head>
+<body>
+
+<!-- The title of the page -->
+<h1>The Psychic Game</h1>
+
+<p>Guess what letter I'm thinking of</p>
+
+<!-- This is where we will have the win counter in HTML. It initially shows 0  -->
+<p>Wins: <span id="wins">0</span></p>
+
+<!-- This is where we will have the loss counter in HTML. It initially shows 0 -->
+<p>Losses: <span id="losses">0</span></p>
+
+<!-- This is where we will post the guessesLeft. Initially nothing is shown. -->
+<p>Guesses Left: <span id="guessesLeft"></span></p>
+
+<!-- This is where we will post the guessesSoFar. Initially nothing is shown. -->
+<p>Your Guesses so far: <span id="guessesSoFar"></span></p>
+	
+<!-- Here we begin the Javascript -->
+<script type="text/javascript">	
+
+	// We're creating a list of three options for the letters
+	var letters = ['a', 'b', 'c'];
+
+	// This array will hold what we guess
+	var guessedLetters = [];
+
+	// This variable will be randomly assigned one of the three letters
+	var letterToGuess = null;
+
+	// These are what we'll use to count down 
+	var totalGuesses = 9;
+	var guessesLeft = 9;
+
+	// This is the counter for wins/losses
+	var wins = 0;
+	var losses = 0;
+
+	// Below we created three functions to updateGuesses, updateGuessesLeft, and updateGuessesSoFar
+	var updateGuessesLeft = function(){
+		// Here we are grabbing the HTML element and setting it equal to the guessesLeft. (i.e. guessesLeft will get displayed in HTML)
+		document.querySelector('#guessesLeft').innerHTML = guessesLeft;
+	};
+	
+	var updateLetterToGuess = function(){
+		// Here we get a random letterToGuess and assign it based on a random generator (only looking at a, b, or c)
+		this.letterToGuess = this.letters[Math.floor(Math.random() * this.letters.length)];
+	};
+
+	var updateGuessesSoFar = function(){
+		// Here we take the guesses the user has tried -- then display it as letters separated by commas. 
+		document.querySelector('#guessesSoFar').innerHTML = guessedLetters.join(', ');
+	};
+
+	// Function will be called when we reset everything
+	var reset = function(){
+		totalGuesses = 9;
+		guessesLeft = 9;
+		guessedLetters = [];
+		updateLetterToGuess();
+		updateGuessesLeft();
+		updateGuessesSoFar();
+	}
+	
+	updateLetterToGuess(); //execute on page load
+	updateGuessesLeft();
+
+	// This function will capture the keyboard clicks. 
+	document.onkeyup = function(event) {
+		// It's going to reduce the guesses by one
+		guessesLeft--;
+
+		// Lowercase the letter
+		var letter = String.fromCharCode(event.keyCode).toLowerCase();
+		
+		// Then add the guess to the guessedLetters array
+		guessedLetters.push(letter);
+
+		// Then its going to run the update functions
+		updateGuessesLeft();
+		updateGuessesSoFar();
+
+		// If we still have guesses left...
+		if (guessesLeft > 0){
+
+			// We'll check if there's a match.
+			if (letter == letterToGuess){
+
+				// If there is then we win and we'll update the html to display the win
+				wins++;
+				document.querySelector('#wins').innerHTML = wins;
+
+				// Then we'll reset the game
+				reset();
+			}
+
+		// If we are out of guesses...
+		}else if(guessesLeft == 0){
+
+			// Then we will loss and we'll update the html to display the loss 
+			losses++;
+			document.querySelector('#losses').innerHTML = losses;
+
+			// Then we'll call the reset. 
+			reset();
+		}
+	};
+</script>
+</body>
+</html>

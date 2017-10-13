@@ -1,0 +1,21 @@
+<h1>Wish Saver</h1>
+
+<h3>Save Wishes</h3>
+
+<ul>
+  {{#each wishes}}
+  	<li>
+  	   <p>ID: {{this.id}}</p>
+       <p>Wish: {{this.wish}}</p>
+  	</li>
+  {{/each}}
+</ul>
+
+<div>
+	<!--TODO define a FORM to use to POST data-->
+	<form method="post" action="/save">
+		<input type="text" name="wish" />
+		<input type="hidden" name="CSRF_TOKEN" value="xxcxx" />
+		<input type="submit" value="Save my wish!" />
+	</form>
+</div>

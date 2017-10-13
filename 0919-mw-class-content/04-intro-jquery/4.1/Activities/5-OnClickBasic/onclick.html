@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trigger Clicked</title>
+
+  <!-- Added link to the jQuery library -->
+  <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+  <!-- Header with an id of clickMe -->
+  <h3 id="clickMe">CLICK ME!</h3>
+
+  <script type="text/javascript">
+
+    // This "document.ready" code isn't necessary in this example... but is useful to become familiar with.
+    // "document.ready" makes sure that our Javascript doesn't get run until the HTML document is finished loading.
+    $(document).ready(function() {
+
+      // Here we use jQuery to select the header with "clickMe" as its ID.
+      // Whenever it is clicked...
+      $("#clickMe").on("click", function() {
+
+        // ... we trigger an alert.
+        alert("I've been clicked!");
+      });
+
+    });
+
+</script>
+
+</body>
+</html>

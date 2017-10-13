@@ -1,0 +1,34 @@
+/*
+	Stylesheet #2
+	=============
+	Here we can define more styles for our HTML page.
+	Take note: The rules here will take precedence over stylesheet #1.
+	That's because #2's rules take effect after #1's, superseding 
+	any rules dilineated in the older document.
+*/
+h2 {
+	font-size: 24px;
+}
+a {
+	color: #d21034;
+}
+.container {
+	width: 1024px;
+	margin: 0 auto;
+}
+#main-bio,
+#contact-info,
+#bio-image {
+	float: left;
+}
+#main-bio {
+	width: 70%;
+}
+#contact-info {
+	width: 30%;
+}
+#bio-image {
+	width: 200px;
+	height: 200px;
+	margin-right: 20px;
+}

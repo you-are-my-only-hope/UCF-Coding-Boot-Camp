@@ -1,0 +1,46 @@
+body {
+    font: 18px arial, sans-serif;
+    background: #eee;
+}
+#animals {
+    width: 70%;
+}
+.animal-item {
+    float: left;
+    padding: 10px;
+}
+form {
+    width: 30%;
+    float: right;
+    padding: 20px;
+}
+label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+    height: 30px;
+    font-size: 18px;
+}
+button,
+input[type="submit"] {
+    background: #659A98;
+    color: #ffffff;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px 20px;
+    font-size: 18px;
+    margin: 0 10px 10px 0;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px #bbb;
+}
+button:hover,
+input[type="submit"]:hover {
+    background: #334E4D;
+}
+button.active {
+    background: #334E4D;
+}

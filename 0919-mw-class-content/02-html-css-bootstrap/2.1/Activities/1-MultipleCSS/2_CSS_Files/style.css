@@ -1,0 +1,31 @@
+
+/* 
+Stylesheet #1
+=============
+Each of these CSS elements is associated with an HTML Element, Class, or ID.
+Flip between this css file and the HTML to see how things line up. 
+Experiment with deleting lines of code from the CSS to see how it affects the webpage when you refresh in the browser.
+
+*/
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #efeee7;
+	font-size: 18px;
+	line-height: 150%;
+	font-family: "Georgia",Times New Roman,Times,serif;
+	color: #333333;
+}
+header {
+	background: #d21034;
+}
+h1 {
+	background: #333333;
+	padding: 20px 0;
+	color: #eee;
+	margin: 0;
+	font-size: 28px;
+	text-align: center;
+	margin-bottom: 20px;
+}

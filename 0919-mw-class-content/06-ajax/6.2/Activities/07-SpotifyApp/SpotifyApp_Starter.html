@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Spotify Player</title>
+</head>
+<body>
+	
+	<!-- Artist Select Box -->
+	<form id="artist-form">
+
+		<!-- Label for Text Box -->
+		<label for="artist-input">Choose Your Artist</label>
+
+		<!-- Text Input Box -->
+		<input type="text" id="artist-input"><br>
+
+		<!-- Submit Button -->
+		<input id="selectArtist" type="submit" value="GO!">
+	</form>
+
+	<!-- Spotify Player Goes Here -->
+	<div id="playerDiv">
+		
+	</div>
+
+</body>
+
+<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script>
+	function getArtistTrack(artist){
+
+		// CREATE CODE IN HERE (to retrieve the artist ID)
+			// then CREATE CODE IN HERE (to retrieve the specific track ID)
+				// then CREATE CODE IN HERE to render an iframe for that track to be played. 
+
+		// BIG HINT: You will need TWO ajax calls to get the content you need. 
+	}
+
+
+	// On Button Click for Artist Selection
+	$('#selectArtist').on('click', function(){
+
+		// Grab the Artist Name
+		var artist = $('#artist-input').val().trim();
+
+		// Run the Artist Player Function (Passing in the Artist as an Argument)
+		getArtistTrack(artist);
+
+		// Prevents moving to the next page
+		return false;
+	});
+
+
+</script>
+</html>

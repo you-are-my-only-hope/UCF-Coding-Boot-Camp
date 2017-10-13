@@ -1,0 +1,87 @@
+/**
+ * Float Layout Activity 
+ **/
+
+* {
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* STUDENTS 
+ * ========
+
+	* Introduce yourself to 1-2 people next to you.
+
+  * Then using `floats.html` and `floats.css` as a starting point, 
+    work together to create the missing CSS necessary to create 
+    the layout shown to you on screen. 
+
+    * This will not be easy so work at it as best you can. 
+      At the very least, try to increase your understanding of CSS properties.
+
+    * Hint: Concentrate on first figuring out how to create the boxes. 
+            Think about using background colors (css property: `background`). 
+
+    * Hint: We've provided the styling you need for the header element. 
+            Use this as a starting point to style the others. 
+
+    * Hint: You will need to apply each of the following css properties at least once:
+      * padding
+      * margin
+      * background
+      * float
+      * width (Read up on width by percents)
+      * color
+      * clear
+      * overflow
+      * height
+      * font-size
+      * line-height
+
+  * If you finish early slack the TAs or raise your hand to call their attention. TAs will reassign you to help others in the class.
+*/
+
+
+body {
+
+}
+
+header {
+
+	background: #ccc;
+	padding: 20px;
+	margin-bottom: 20px;
+	color: #333;
+}
+
+section {
+
+}
+
+#left {
+
+}
+
+#middle {
+
+}
+
+#right {
+
+}
+
+#full {
+
+}
+
+#division {
+
+}
+
+aside {
+
+}
+
+footer {
+
+}

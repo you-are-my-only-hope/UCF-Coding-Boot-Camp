@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <title>Favorite Movies</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Basic Table</h2>
+        <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Movie Name</th>
+                    <th>Year</th>
+                    <th>Actors</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- Example Movie 1 -->
+                    <td id="movie1-name"></td>
+                    <td>BLAH</td>
+                    <td>BLAH</td>
+                </tr>
+                <tr>
+                    <td>BLAH</td>
+                    <td>BLAH</td>
+                    <td>BLAH</td>
+                </tr>
+                <tr>
+                    <td>BLAH</td>
+                    <td>BLAH</td>
+                    <td>BLAH</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+    <script type="text/javascript">
+    //the below code fills in the first row of the table
+    var type = 'mr+nobody';
+    var queryURL = "http://www.omdbapi.com/?t=" + type + "&y=&plot=short&r=json";
+
+    $.ajax({
+            url: queryURL,
+            method: 'GET'
+        })
+        .done(function(response) {
+
+            // Example Movie
+            var firstRowTds = $('table').children().eq(1).children('tr').eq(0).children('td');
+
+            firstRowTds.eq(0).text(response.Title);
+
+            firstRowTds.eq(1).text(response.Year);
+
+            firstRowTds.eq(2).text(response.Actors);
+        });
+
+    var type = 'the+little+mermaid';
+    var queryURL = "http://www.omdbapi.com/?t=" + type + "&y=&plot=short&r=json";
+
+    $.ajax({
+            url: queryURL,
+            method: 'GET'
+        })
+        .done(function(response) {
+            console.log(response);
+
+            // Example Movie
+            var firstRowTds = $('table').children().eq(1).children('tr').eq(1).children('td');
+
+            firstRowTds.eq(0).text(response.Title);
+
+            firstRowTds.eq(1).text(response.Year);
+
+            firstRowTds.eq(2).text(response.Actors);
+        });
+
+    var type = 'the+lion+king';
+    var queryURL = "http://www.omdbapi.com/?t=" + type + "&y=&plot=short&r=json";
+
+    $.ajax({
+            url: queryURL,
+            method: 'GET'
+        })
+        .done(function(response) {
+            console.log(response);
+
+            // Example Movie
+            var firstRowTds = $('table').children().eq(1).children('tr').eq(2).children('td');
+
+            firstRowTds.eq(0).text(response.Title);
+
+            firstRowTds.eq(1).text(response.Year);
+
+            firstRowTds.eq(2).text(response.Actors);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Basic jQuery Dump</title>
+	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Created an empty HTML div. Note that there is no content -->
+<div id="emptyDiv"></div>
+
+<!-- Here we're adding a bit of CSS -->
+<style>
+	.fancy {
+		font-size: 100px;
+		color: green;
+	}
+</style>
+
+<script type="text/javascript">
+
+	// Thanks to the handy $ selector from jQuery and its library of methods
+	var emptyDiv = $("#emptyDiv");
+	// With jQuery we can easily inject full HTML.
+	emptyDiv.html("<h1>Hello friends!</h1>");
+
+	// If we needed each to be their own div, we could also create a new div
+	var newDiv = $('<div>');
+	newDiv.html("A pleasure to meet you!");
+
+	// We can then easily append it to the other div
+	emptyDiv.append(newDiv);
+
+	// We can also add classes to the elements we create
+	newDiv.attr("class", "fancy")
+
+</script>
+
+</body>
+</html>

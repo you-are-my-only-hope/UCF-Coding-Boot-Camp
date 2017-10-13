@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    data types, user input, conditional logic
+  </title>
+</head>
+<body>
+  <script type="text/javascript">
+    var confirmSushi = confirm('Do you like sushi?');
+    var confirmGingerTea = confirm('Do you like Ginger Tea?')
+    var sushiType = prompt('What kind of sushi do you like?');
+
+    if (confirmSushi){
+      alert("You like " + sushiType + " !");
+    }
+
+    else if(confirmGingerTea){
+      alert("You like ginger tea!!")
+
+    }
+
+    else{
+      document.write("You don't like sushi or ginger tea.");
+    }      
+  </script>
+</body>
+</html>

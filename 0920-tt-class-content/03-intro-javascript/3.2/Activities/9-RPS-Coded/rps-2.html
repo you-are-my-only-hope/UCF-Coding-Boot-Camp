@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors Part 1</title>
+</head>
+<body>
+
+<div id="game">
+
+</div>
+
+<script type="text/javascript">
+
+// Create an array that lists out all of the options
+var options = ['r','p','s'];
+
+// Captures Key Clicks
+document.onkeyup = function(event) {
+
+	// Determines which exact key was selected. Make it lowercase
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+	// Alerts with user guess
+	alert(userGuess);
+
+	// Create code to randomly choose one of the three options (Computer) 
+	var computerGuess = options[Math.floor(Math.random()*options.length)];
+
+	// Alerts with Computer guess
+	alert(computerGuess);
+
+}
+
+</script>
+</body>
+</html>

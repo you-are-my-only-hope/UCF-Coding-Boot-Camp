@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>New This</title>
+
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<script>
+
+var theCobWeb = {
+	biggestWeb: {
+		item: "comb",
+		biggerWeb: {
+			items: ["glasses", "paperclip", "bubblegum"],
+			smallerWeb: {
+				item: "toothbrush",
+				tinyWeb: {
+					items: ["toenails", "lint", "wrapper", "homework"]
+				}
+			}
+		},
+		otherBigWeb: {
+			item: "headphones"
+		} 
+	}
+}
+
+// Create the code necessary to print each of the following lines using the object above:
+// "I found my glasses!"
+// "I found my toothbrush!"
+// "I found my headphones!"
+// "I found my homework!"
+console.log("I found my " + theCobWeb.biggestWeb.biggerWeb.items[0] + "!");
+console.log("I found my " + theCobWeb.biggestWeb.biggerWeb.smallerWeb.item + "!");
+console.log("I found my " + theCobWeb.biggestWeb.otherBigWeb.item + "!");
+console.log("I found my " + theCobWeb.biggestWeb.biggerWeb.smallerWeb.tinyWeb.items[3] + "!");
+
+// Bonus (Extra Hard): Create a function using Javascript or jQuery for which you can pass the name of an item... 
+// And the function returns the smallest web it was found inside of.
+// Sorry bro. You are going to have to figure this one out. Its a challenge. 
+
+
+
+</script>
+	
+</body>
+</html>

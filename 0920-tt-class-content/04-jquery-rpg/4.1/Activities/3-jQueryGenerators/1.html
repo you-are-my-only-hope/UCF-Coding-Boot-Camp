@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Basic jQuery Dump</title>
+	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Created an empty HTML div. Note that there is no content -->
+<div id="emptyDiv"></div>
+
+
+<script type="text/javascript">
+
+	// Thanks to the handy $ selector from jQuery and its library of methods
+
+
+	// And we can just as easily append a new line.
+	$('#emptyDiv').append("A pleasure to meet you!");
+
+	
+	// With jQuery we can easily inject full HTML.
+	$("#emptyDiv").html("<h1>Hello friends!</h1>");
+
+</script>
+
+</body>
+</html>

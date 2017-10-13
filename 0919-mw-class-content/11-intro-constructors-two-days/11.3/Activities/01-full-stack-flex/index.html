@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gify Search</title>
+  <!-- Bootswatch Styling for Improving the Aesthetics -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+
+</head>
+
+<body>
+
+  <!-- Main Bootstrap Search -->
+  <div class="container">
+
+    <!-- Jumbotron for Title -->
+    <div class="jumbotron">
+      <h1 class="text-center"><strong><i class="fa fa-newspaper-o"></i> Gify Search</strong></h1>
+    </div>
+
+    <!-- Row for Searching New York Times -->
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
+        <!-- First panel is for handling the search parameters -->
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong><i class="fa  fa-list-alt"></i>   Search Parameters</strong></h3>
+          </div>
+          <div class="panel-body">
+
+            <!-- Here we create an HTML Form for handling the inputs-->
+            <form role="form">
+
+              <!-- Here we create the text box for capturing the search term-->
+              <div class="form-group">
+                <label for="search">Search Term:</label>
+                <input type="text" class="form-control" id="search-term">
+              </div>
+
+              <!-- Here we have our final submit button -->
+              <button type="submit" class="btn btn-default" id="run-search"><i class="fa fa-search"></i> Search</button>
+              <button type="button" class="btn btn-default" id="clear-all"><i class="fa fa-trash"></i> Clear Results</button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- This row will handle all of the retrieved images -->
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
+
+        <!-- This panel will initially be made up of a panel and wells for each of the images retrieved -->
+        <div class="panel panel-primary">
+
+          <!-- Panel Heading for the retrieved images box -->
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong><i class="fa fa-table"></i>   Top Results</strong></h3>
+          </div>
+
+          <!-- This main panel will hold each of the resulting images -->
+          <div class="panel-body" id="well-section">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- jQuery JS -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <!-- Code to the Javascript File -->
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#run-search').on('click', function() {
+        var term = $('#search-term').val();
+
+        var request = {
+          method: 'GET',
+          url: 'http://localhost:8080/search?q='+ term
+        };
+
+        var $results = $('#well-section');
+
+        $.ajax(request).done(function(response) {
+          console.log(response);
+
+          for (var i = 0; i < response.images.length; i++) {
+            var image = response.images[i].fixed_height;
+            
+            $results.append('<img src="'+ image +'">');
+          }
+        });
+
+        return false;
+      });
+
+
+      $('#clear-all').on('click', function() {
+        $('#well-section').html('');
+      });
+    });
+  </script>
+
+</body>
+
+</html>

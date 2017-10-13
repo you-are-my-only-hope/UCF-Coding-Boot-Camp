@@ -1,0 +1,15 @@
+<!-- ng-if is also a built-in angular directive -->
+<span ng-if="StoryContentVM.storyData.heroName !== ''">
+    <!-- {{}} is angular templating syntax StoryVM is defined in our directive.js as the "ControllerAs" -->
+    There once was a hero named {{StoryContentVM.storyData.heroName}}!
+</span>
+            <span ng-if="StoryContentVM.storyData.heroName !== '' && StoryContentVM.storyData.heroGender && StoryContentVM.storyData.heroCity !== ''">
+    {{StoryContentVM.storyData.heroGenderWord}} lived in a great castle outside of the grand city {{StoryContentVM.storyData.heroCity}}.
+</span>
+            <span ng-if="StoryContentVM.storyData.heroName !== '' && StoryContentVM.storyData.heroGender && StoryContentVM.storyData.heroCity !== '' && StoryContentVM.storyData.heroFights !== ''">
+    One day, {{StoryContentVM.storyData.heroName}} fights a {{StoryContentVM.storyData.heroFights}}.
+</span>
+            <span ng-if="StoryContentVM.storyData.heroFightOutcome !== '' && StoryContentVM.storyData.heroName !== '' && StoryContentVM.storyData.heroGender && StoryContentVM.storyData.heroCity !== '' && StoryContentVM.storyData.heroFights !== ''">
+    <span ng-if="StoryContentVM.storyData.heroFightOutcome === 'win'">{{StoryContentVM.storyData.heroGenderWord}} won and the city was saved!</span>
+    <span ng-if="StoryContentVM.storyData.heroFightOutcome === 'lost'">{{StoryContentVM.storyData.heroGenderWord}} lost and the {{StoryContentVM.storyData.heroFights}} ate all of the people in the city!</span>
+</span>

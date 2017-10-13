@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Trigger Clicked</title>
+
+	<!-- Added link to the jQuery Library -->
+	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<!-- Header with an id of clickMe -->
+<h3 id="clickMe">CLICK ME!</h1>
+
+<script type="text/javascript">
+
+// This document.ready isn't necessary in this example... but is needed in cases where the HTML is complex.
+// This code makes sure that the javascript doesn't get run until the HTML is finished loading 
+// It's good practice to start using it now
+$(document).ready(function(){
+
+    // Here we use jQuery to select the header with "clickMe" as its ID.
+    // Whenever it is clicked... 
+    $("#clickMe").on("click", function(){
+
+        // Trigger an alert.
+        alert("I've been clicked!");
+    })
+
+
+})
+
+
+    // When randomButton is clicked...
+    $("#randomButton").on("click", function(){
+
+        // Create a string which will hold the lottery number
+        var lottoNumber = "";
+
+        // Create a loop that generates 9 separate numbers
+        for (var i=0; i<9; i++){
+             var random = Math.floor(Math.random() * 9) + 1;  
+
+             // Add to the lottery number
+             lottoNumber = random + lottoNumber;
+
+        }
+
+        // Then pre-pend the lotto number to the top of our randomNumber div. 
+        $('#randomNumber').prepend('<br><hr>' + lottoNumber);
+    })
+
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Find events in your area!</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <style type="text/css">
+        .event-image {
+            width: 120px;
+        }
+        .event-name {
+            width: 200px;
+        }
+        .new-favorite {
+            vertical-align: middle !important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <h1 class="text-center">Find events in your area!</h1>
+        </div>
+
+        <div class="row">
+            <!-- Search Panel-->
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Event Search</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <!-- Event Search Form -->
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="city-input">City:</label>
+                                <input class="form-control" id="city-input" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="date-input">When?</label>
+                                <select class="form-control" id="date-select">
+                                    <option value="Future" selected>Future</option>
+                                    <option value="Today">Today</option>
+                                    <option value="This Week">This Week</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="results-input">Results:</label>
+                                <select class="form-control" id="results-select">
+                                    <option value="10" selected>10</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-default" id="event-search" type="submit">Submit</button>
+                            <button class="btn btn-danger" id="event-clear">Clear</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Found Events -->
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Event Results</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped" id="event-results"></table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Favorite Events -->
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Favorite Events</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped" id="favorite-events"></table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Javascript -->
+    <script type="text/javascript">
+        // Register API key for Eventful API
+        // Docs: http://api.eventful.com/docs/events/search
+
+        $('#event-search').on('click', function() {
+            var query = {
+                app_key: 'qZ7Cj6JJXxTtqKhm',
+                location: $('#city-input').val(),
+                date: $('#date-select').val(),
+                page_size: $('#results-select').val()
+            };
+
+            var url = 'http://api.eventful.com/jsonp/events/search?' + $.param(query);
+
+            var request = {
+                url: url,
+                method: 'GET',
+                dataType: 'jsonp'
+            }
+
+            $.ajax(request).done(updateSearch);
+
+            return false;
+        });
+
+        $('#event-clear').on('click', function() {
+            $('#event-results').empty();
+
+            return false;
+        });
+
+        function updateSearch(response) {
+            $('#event-results').empty();
+
+            // loop through events
+            var events = response.events.event;
+
+            for (var i = 0; i < events.length; i++) {
+                var event = events[i];
+
+                var row = $('<tr class="event-result">');
+
+                var image = 'http://www.novelupdates.com/img/noimagefound.jpg';
+                if (event.image && event.image.medium) {
+                    image = event.image.medium.url;
+                }
+
+                var favorite = $('<td class="new-favorite"><i class="glyphicon glyphicon-plus"></i></td>');
+                favorite.data('url', event.url);
+                favorite.data('title', event.title);
+                favorite.data('start_time', event.start_time);
+                favorite.data('venue_name', event.venue_name);
+                favorite.data('venue_address', event.venue_address);
+                favorite.data('image', image);
+
+                favorite.on('click', clickedFavorite);
+
+                row.append(favorite);
+                row.append('<td><img class="event-image" src="' + image + '"></td>');
+                row.append('<td class="event-name"><a href="' + event.url + '">' + event.title + '</a><br>' + event.venue_name + '<br>' + event.venue_address + '</td>');
+                row.append('<td>' + event.start_time + '</td>');
+
+                $('#event-results').append(row);
+            }
+        }
+
+        function clickedFavorite() {
+            // add to local storage
+            var storage = [];
+            var data = localStorage.getItem('events');
+
+            if (data) {
+                storage = JSON.parse(data);
+            }
+
+            var clicked = $(this);
+
+            storage.push({
+                url: clicked.data('url'),
+                title: clicked.data('title'),
+                start_time: clicked.data('start_time'),
+                venue_name: clicked.data('venue_name'),
+                venue_address: clicked.data('venue_address'),
+                image: clicked.data('image')
+            });
+
+            localStorage.setItem('events', JSON.stringify(storage));
+
+            // call update localstorage view function
+            updateFavorites();
+        }
+
+        function updateFavorites() {
+            $('#favorite-events').empty();
+
+            var storage = [];
+            var data = localStorage.getItem('events');
+
+            if (data) {
+                storage = JSON.parse(data);
+            }
+
+            for (var i = 0; i < storage.length; i++) {
+                var event = storage[i];
+                var row = $('<tr class="event-favorite">');
+
+                row.append('<td><img class="event-image" src="' + event.image + '"></td>');
+                row.append('<td class="event-name"><a href="' + event.url + '">' + event.title + '</a><br>' + event.venue_name + '<br>' + event.venue_address + '</td>');
+                row.append('<td>' + event.start_time + '</td>');
+
+                $('#favorite-events').append(row);
+            }
+        }
+
+        updateFavorites();
+    </script>
+
+</body>
+
+</html>

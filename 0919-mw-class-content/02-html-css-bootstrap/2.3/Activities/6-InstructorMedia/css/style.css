@@ -1,0 +1,55 @@
+/**
+ * Media Query Demo (note the commented rules) 
+ **/
+
+* {
+  box-sizing: border-box;
+}
+
+/* 
+	The background color will be #ccc 
+  at browser widths above 768px 
+*/
+body {
+	background-color: #ccc;
+	font-size: 18px;
+	line-height: 27px;
+}
+/* 
+	The width of the wrapper will be 1024px
+  at browser widths above 768px 
+*/
+.wrapper {
+	width: 1024px;
+	margin: 40px auto;
+}
+#main-content,
+#sidebar {
+	width: 500px;
+	padding: 30px;
+}
+#main-content {
+	float: left;
+	background: #fff;
+}
+#sidebar {
+	float: right;
+	background: #eee;
+}
+
+/* 
+	These rules take effect when the browser's width
+	is either 768px or less.
+*/
+@media screen and (max-width: 768px) {
+
+	/* The body's bg color will be #333 */
+	body {
+		background-color: #333;
+	}
+
+	/* The wrapper's width will be 600px */
+	.wrapper {
+		width: 600px;
+	}
+}

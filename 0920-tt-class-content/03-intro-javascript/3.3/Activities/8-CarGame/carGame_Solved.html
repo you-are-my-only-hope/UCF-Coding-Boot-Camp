@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Car Adventures!</title>
+</head>
+<body>
+
+<h1>Car Adventures!</h1>
+<h2>Type "h" to honk, "d" to drive to work, "w" to drive around the world, or "t" to get a tuneup.</h2>
+<h2>See console for car stats.</h2>
+
+<script>
+
+// 1. We have to capture the button clicks
+// 2. We have to identify the click 
+// 3. We have to "do something in response " to particular clicks.
+
+// VARIABLES
+
+// // FUNCTIONS
+// function checkLetter(letter){
+
+// 	if(letter == "h"){
+// 		alert("HONK");
+// 	}
+
+// 	if (letter == "d"){
+
+// 		alert("DRIVE TO WORK");
+// 	}
+
+// 	if (letter == "t"){
+
+// 		alert("TUNEUP");
+// 	}
+
+// 	if (letter == "w"){
+		
+// 		alert("DRIVE AROUND WORLD");
+// 	}
+
+// }
+
+// // MAIN PROCESS
+// document.onkeyup = function(event){
+// 	var letter = String.fromCharCode(event.keyCode).toLowerCase();
+
+// 	checkLetter(letter);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// VARIABLES
+	// ==========================================================================
+	var car = {
+		make: "Honda",
+		model: "Fit",
+		color: "Blue Rasberry",
+		mileage: 3000,
+		isWorking: true,
+
+		driveToWork: function(){
+
+			alert("Old Mileage: " + this.mileage)
+			
+			this.mileage = this.mileage + 8;
+			
+			alert("New mileage: " + this.mileage);
+		},
+
+		driveAroundWorld: function(){
+
+			alert("Old Mileage: " + this.mileage);
+
+			this.mileage = this.mileage + 24000;
+
+			alert("New Mileage: " + this.mileage);
+			alert("Car needs a tuneup!")
+
+			this.isWorking = false;
+		},
+
+		getTuneUp: function(){
+			alert("Car is ready to go!");
+			this.isWorking = true;
+		},
+
+		honk: function(){
+			alert("Meeeeeeeeowwwww");
+		} 
+	}
+
+
+	// FUNCTIONS
+	// ==============================================================================
+
+	function reWriteStats(){
+		console.log("Make: " + car.make);
+		console.log("Model: " + car.model);
+		console.log("Color:" + car.color);
+
+		console.log("Mileage: " + car.mileage);
+		console.log("Is Working: " + car.isWorking);
+		console.log("------------------------------")
+	}
+
+	// MAIN PROCESS
+	// ==============================================================================
+
+	// Captures keyboard input. Depending on the letter pressed it will "call" (execute) that function in the car object.
+	document.onkeyup = function(event){
+		var letter = String.fromCharCode(event.keyCode).toLowerCase();
+
+		if (letter == 'h'){
+			car.honk();
+			reWriteStats();
+		}
+
+		if (letter == "d"){
+			car.driveToWork();
+			reWriteStats();
+		}
+
+		if(letter == "w"){
+			car.driveAroundWorld();
+			reWriteStats();
+		}
+
+		if(letter == "t"){
+			car.getTuneUp();
+			reWriteStats();
+		}
+	}
+
+</script>
+	
+</body>
+</html>

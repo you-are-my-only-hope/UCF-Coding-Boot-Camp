@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>lexicalScope</title>
+  </head>
+  <body>
+      
+      <script type="text/javascript">
+
+ 		/* What happens when the code is ran! */
+		//---------- ---------- ---------- ----------
+		//question 1
+		var myVar1 = 1;
+
+		function a1() {
+			myVar1 = 5 - 3;
+			b1();
+			alert("Q1 | a: " + myVar1);
+		}
+
+		function b1() {
+			alert("Q1 | b: " + myVar1);
+		}
+		a1();
+
+		//alert 1
+		//alert 2
+
+		/* When the code is run the a() call looks inside function a... then stumbles into b(). This triggers two different alerts. The first alert(myVar) found in function a and the second a
+		/* Because when the code is ran lexically function b looks outside of it's scope to see myVar = 1 and alerted that, when function a is being called it created it's own local myVar and alerted that.*/
+
+		/* What happenes when the code is ran! */
+		//---------- ---------- ---------- ----------
+		//question 2
+		var myVar2 = 1;
+
+		function a2() {
+			var myVar2 = 5 - 3;
+			b2();
+			alert("Q2 | a: " + myVar2);
+		}
+
+		function b2() {
+			alert("Q2 | b: " + myVar2);
+		}
+		a2();
+
+		//alert 1
+		//alert 2
+
+		/* When the code is run the a() call looks inside function a... then stumbles into b(). This triggers two different alerts. The first alert(myVar) found in function a and the second a
+		/* Because when the code is ran lexically function b looks outside of it's scope to see myVar = 1 and alerted that, when function a is being called it created it's own local myVar and alerted that.*/
+
+		// //---------- ---------- ---------- ----------
+		// //question 3: Bonus
+		// var myVar = 1;
+		// function c() {
+		//   this.myVar = 15;
+		//   alert(myVar);
+		//   var myVar = 3;
+		//   alert(myVar);
+		// }
+		// c();
+
+		// //alert undefined
+		// //alert 3
+		//  Because when the code is ran lexically the function c has a property of myVar and a varible of myVar, the varaible myVar is set to undefined when the function is being read by JavaScript engine(hoisting), but when the function is called it's looking at the scope to see if it finds a variable named myVar, it alerts myVar with undefined and the function assigns myVar 3 and alerts 3 
+
+      </script>
+  </body>
+</html>

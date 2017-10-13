@@ -1,0 +1,16 @@
+<script type="text/javascript">
+	var query = {
+	  app_key: 'YOUR API KEY',
+	  location: $('#city-input').val(),
+	  date: $('#date-select').val(),
+	  page_size: $('#results-select').val()
+	};
+
+	var url = 'http://api.eventful.com/jsonp/events/search?'+ $.param(query);
+
+	var request = {
+	  url: url,
+	  method: 'GET',
+	  dataType: 'jsonp'
+	}
+</script>

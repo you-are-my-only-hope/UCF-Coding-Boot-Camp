@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Captain Planet: The Game</title>
+
+  <!-- Bootstrap File -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+</head>
+<body>
+
+  <!-- Overall Bootstrap Grid -->
+  <div class="container">
+
+    <!-- Jumbotron with Title -->
+    <div class="jumbotron">
+      <h1 class="text-center"><strong>Captain Planet: The Game!</strong></h1>
+      <h4 class="text-center">Rated M for Mature</h4>
+      <hr>
+      <div class="text-center">
+        <button class="btn btn-warning btn-xs themeButton"><span class="glyphicon glyphicon-music"></span> Play Theme!</button>       
+        <button class="btn btn-default btn-xs pauseButton"><span class="glyphicon glyphicon-pause"></span> Pause Song</button>  
+      </div>
+
+    </div>
+    <div class="row">
+
+      <!-- Left Panel -->
+      <div class="col-lg-6">
+
+        <!-- Controls (Superpower Grow/Shrink)-->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Superpowers - Change Sizes!</h3>
+          </div>
+          <div class="panel-body">
+            <div class="text-center">
+              <button class="btn btn-default btn-lg normalButton"><span class="glyphicon glyphicon-ok-sign"></span> Normal</button>
+              <button class="btn btn-primary btn-lg growButton"><span class="glyphicon glyphicon-plus-sign"></span> Grow</button>
+              <button class="btn btn-danger btn-lg shrinkButton"><span class="glyphicon glyphicon-minus-sign"></span> Shrink</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls (Superpower Visibility) -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Superpowers - Invisiblity!</h3>
+          </div>
+          <div class="panel-body">
+            <div class="text-center">
+              <button class="btn btn-default btn-lg visButton"><span class="glyphicon glyphicon-eye-open"></span> Visible</button>
+              <button class="btn btn-info btn-lg invisButton"><span class="glyphicon glyphicon-eye-close"></span> Invisible</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls (Superpower Move Controls) -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Move Controls</h3>
+          </div>
+          <div class="panel-body">
+            <div class="text-center">
+              <button class="btn btn-default btn-lg upButton"><span class="glyphicon glyphicon-arrow-up"></span></button>       
+            </div>
+            <div class="text-center">
+              <button class="btn btn-default btn-lg leftButton"><span class="glyphicon glyphicon-arrow-left"></span></button>
+              <button class="btn btn-default btn-lg downButton"><span class="glyphicon glyphicon-arrow-down"></span></button>
+              <button class="btn btn-default btn-lg rightButton"><span class="glyphicon glyphicon-arrow-right"></span></button> 
+            </div>
+            <br>
+            <div class="text-center">
+              <button class="btn btn-default btn-lg backButton"><span class="glyphicon glyphicon-comment"></span> Go Planet!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel (Captain Planet Hero)-->
+      <div class="col-lg-6">
+
+        <!-- Captain Planet Image -->
+        <img src="http://screencrush.com/442/files/2013/06/captain-planet-01.jpg" alt="" class="img captainplanet" style="position:absolute; top:50px; left: 80px; z-index: -20; height: 300px">
+      </div>
+    </div>
+  </div>
+  
+  <script>
+
+    // Javascript function that wraps everything
+    $(document).ready(function() {
+
+      // Gets Link for Theme Song
+      var audioElement = document.createElement("audio");
+      audioElement.setAttribute("src", "Assets/captainplanet24.mp3");
+
+      // Theme Button
+      $(".themeButton").on("click", function() {
+        audioElement.play();
+      });
+
+      $(".pauseButton").on("click", function() {
+        audioElement.pause();
+      });
+
+      // Size Buttons
+      $(".normalButton").on("click", function() {
+        $(".captainplanet").animate({ height: "300px" });
+      });
+
+      $(".growButton").on("click", function() {
+        $(".captainplanet").animate({ height: "500px" });
+      });
+
+      $(".shrinkButton").on("click", function() {
+        $(".captainplanet").animate({ height: "100px" });
+      });
+
+      // Visibility Buttons
+      $(".visButton").on("click", function() {
+        $(".captainplanet").animate({ opacity: "1" });
+      });
+
+      $(".invisButton").on("click", function() {
+        $(".captainplanet").animate({ opacity: "0.05" });
+      });
+
+      // Move Buttons
+      $(".upButton").on("click", function() {
+        $(".captainplanet").animate({ top: "-=200px" }, "normal");
+      });
+
+      $(".downButton").on("click", function() {
+        $(".captainplanet").animate({ top: "+=200px" }, "normal");
+      });
+
+      $(".leftButton").on("click", function() {
+        $(".captainplanet").animate({ left: "-=200px" }, "normal");
+      });
+
+      $(".rightButton").on("click", function() {
+        $(".captainplanet").animate({ left: "+=200px" }, "normal");
+      });
+
+      $(".backButton").on("click", function() {
+        $(".captainplanet").animate({ top: "50px", left: "80px" }, "fast");
+      });
+
+      // Move Buttons (Keyboard Down)
+      $(document).keyup(function(e) {
+        switch (e.which) {
+          case 40:
+            $(".captainplanet").animate({ top: "+=200px" }, "normal");
+        }
+      });
+
+      // Move Buttons (Keyboard Right)
+      $(document).keyup(function(e) {
+        switch (e.which) {
+          case 39:
+            $(".captainplanet").animate({ left: "+=200px" }, "normal");
+        }
+      });
+
+      // Move Buttons (Keyboard Up)
+      $(document).keyup(function(e) {
+        switch (e.which) {
+          case 38:
+            $(".captainplanet").animate({ top: "-=200px" }, "normal");
+        }
+      });
+
+      // Move Buttons (Keyboard Left)
+      $(document).keyup(function(e) {
+        switch (e.which) {
+          case 37:
+            $(".captainplanet").animate({ left: "-=200px" }, "normal");
+        }
+      });
+    });
+
+  </script>
+
+</body>
+</html>

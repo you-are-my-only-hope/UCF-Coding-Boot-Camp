@@ -1,0 +1,6 @@
+{
+  "watch": [
+    "routes/*.js",
+    "server.js"
+  ]
+}

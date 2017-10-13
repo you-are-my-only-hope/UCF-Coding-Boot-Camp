@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Basic Javascript Dump</title>
+</head>
+<body>
+
+	<script>
+		
+
+
+		var users =[
+			{
+				firstName: 'Kody',
+				lastName: 'Peterson',
+				age: 10,
+				phoneNumber: "nope",
+			},
+			{
+				firstName: 'Test',
+				lastName: 'Testing',
+				age: 10,
+				phoneNumber: "nope",
+				address: {
+					home: '123 Lane',
+					work: '200 Here'
+				}
+			}
+		]
+
+		console.log(users[1].address.home);
+
+
+		function getUserByName(whateverYouWant) {
+			for (var i=0; i < users.length; i++) {
+				if (users[i].firstName === whateverYouWant) {
+					return users[i];
+				}
+			}
+		}
+
+		console.log(getUserByName('Test'));
+		console.log(getUserByName('Kody'));
+
+
+
+
+
+
+
+
+	</script>
+
+
+</body>
+</html>

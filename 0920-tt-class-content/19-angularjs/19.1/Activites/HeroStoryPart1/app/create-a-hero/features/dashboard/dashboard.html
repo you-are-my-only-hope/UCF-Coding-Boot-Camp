@@ -1,0 +1,33 @@
+<h2>Create A Hero's Story!</h2>
+
+<form>
+    <!-- ng-model is a built in Angular directive which ties the value of the textbox to the variable -->
+    Name: <input type="test" name="heroName" ng-model="DashboardVM.heroName">
+    <br>
+    Gender: <input type="radio" value="male" ng-model="DashboardVM.heroGender"> Male <input type="radio" value="female" ng-model="DashboardVM.heroGender"> Female
+    <br>
+    City: <input type="text" name="city" ng-model="DashboardVM.heroCity">
+    <br>
+    Fights A: <input type="text" name="fights" ng-model="DashboardVM.heroFights">
+    <br>
+    Outcome: <input type="radio" value="win" ng-model="DashboardVM.heroFightOutcome"> Wins <input type="radio" value="loose" ng-model="DashboardVM.heroFightOutcome"> Looses
+</form>
+<br>
+<hr>
+<br>
+
+<!-- ng-if is also a built-in angular directive -->
+<span ng-if="DashboardVM.heroName !== ''">
+    <!-- {{}} is angular templating syntax DashboardVM is defined in our route.js as the "ControllerAs" -->
+    There once was a hero named {{DashboardVM.heroName}}!
+</span>
+<span ng-if="DashboardVM.heroName !== '' && DashboardVM.heroGender && DashboardVM.heroCity !== ''">
+    {{DashboardVM.heroGenderWord}} lived in a great castle outside of the grand city {{DashboardVM.heroCity}}.
+</span>
+<span ng-if="DashboardVM.heroName !== '' && DashboardVM.heroGender && DashboardVM.heroCity !== '' && DashboardVM.heroFights !== ''">
+    One day, {{DashboardVM.heroName}} fights a {{DashboardVM.heroFights}}.
+</span>
+<span ng-if="DashboardVM.heroFightOutcome !== '' && DashboardVM.heroName !== '' && DashboardVM.heroGender && DashboardVM.heroCity !== '' && DashboardVM.heroFights !== ''">
+    <span ng-if="DashboardVM.heroFightOutcome === 'win'">{{DashboardVM.heroGenderWord}} won and the city was saved!</span>
+    <span ng-if="DashboardVM.heroFightOutcome === 'loose'">{{DashboardVM.heroGenderWord}} lost and the {{DashboardVM.heroFights}} ate all of the people in the city!</span>
+</span>

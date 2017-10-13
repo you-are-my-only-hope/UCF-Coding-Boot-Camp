@@ -1,0 +1,11 @@
+/**
+ * Static: Default positioning
+ **/
+.box-set {
+  background: #eaeaed;
+}
+.box {
+  background: #2db34a;
+  height: 80px;
+  width: 80px;
+}

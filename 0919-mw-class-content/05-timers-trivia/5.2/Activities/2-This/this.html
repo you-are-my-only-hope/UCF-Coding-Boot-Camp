@@ -1,0 +1,98 @@
+<!-- "This" Demo -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>What is this?</title>
+</head>
+<body>
+    <button id="button">CLICK ME!</button>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <script type="text/javascript">
+        var outside = function() {
+            console.log(this); // 1. What will be console logged out? What is *this* in this case?
+        };
+
+        outside();
+
+
+
+
+
+
+
+
+
+
+
+        $('#button').on('click', function(){
+            console.log(this); //2. what will be console logged out? What is *this* in this case?
+        });˜
+
+
+
+
+
+
+
+
+        var bob = {
+            firstName: "Bob",
+            lastName: "Smith",
+            whoIsBob: function() {
+                console.log(this);
+            },
+            fullName: function() {
+                // 3. Put something inside of here so that this works
+
+            }
+        };
+
+
+
+
+
+        // 4. What will the console log output if the next function gets called?
+        bob.whoIsBob();
+
+
+
+
+
+
+
+
+        // 5. Fill in the code inside the fullName function above 
+        //    so that the below code console.logs out Bob's full name 
+        //    using the firstName and lastName properties
+        bob.fullName();
+
+
+
+
+
+
+
+
+        // 6. Make the theChosenOne function log "Keanu Reeves"
+
+        // your code goes here....
+        
+        // 
+
+
+        //   without editing any of the code below. 
+        //   Use only the properties in "this."
+        var theChosenOne = function () {
+            console.log(this.firstName + " " + this.lastName)
+        }
+
+        theChosenOne();
+    </script>
+</body>
+</html>
+
+
+
+

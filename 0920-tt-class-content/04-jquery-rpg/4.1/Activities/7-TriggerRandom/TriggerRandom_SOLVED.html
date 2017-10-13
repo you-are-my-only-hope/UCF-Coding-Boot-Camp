@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Trigger Random</title>
+
+	<!-- Added link to the jQuery Library -->
+	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="jumbotron">
+    <h1 class="text-center">Generate a Random Number!</h1>
+
+    <div class="text-center">
+
+        <!-- Here we have our button with id randomButton -->
+        <button id="randomButton" class="btn btn-primary btn-lg"><h1><span class="glyphicon glyphicon-question-sign"></span></h1></button>
+    </div>
+
+</div>
+
+<!-- Here we have the div where our number will go called randomNumber -->
+<h1 class="text-center" id="randomNumber"></h1>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+    // When randomButton is clicked...
+    $("#randomButton").on("click", function(){
+
+        // Generate a random number
+        var random = Math.floor(Math.random() * 1000) + 1;  
+
+        // Then dump the random number into our randomNumber div. 
+        $('#randomNumber').html(random);
+    })
+
+})
+
+
+
+</script>
+	
+</body>
+</html>

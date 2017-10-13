@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Partners Loop</title>
+</head>
+<body>
+
+<script>
+	// start with this array
+	var myFarm = ['chickens', 'pigs', 'cows', 'horses', 'ostriches'];
+
+	// Then loop through the array and alert each value to screen.
+	// ...
+
+	var arrayLength = myFarm.length;
+	for (var j = 0; j < arrayLength; j++){
+		alert(myFarm[j]);
+		// j = 0
+		// j = 1	
+		// j = 2
+		//..
+		// j = 4
+
+		// Bonus - Alert if c or o
+		if(myFarm[j].charAt(0)=="c" || myFarm[j].charAt(0)=="o"){
+			alert("Starts with a c or an o!");
+		}
+	}
+	console.log(j)
+	j = 0;
+	console.log(j);
+
+	// ...
+
+
+</script>
+	
+</body>
+</html>

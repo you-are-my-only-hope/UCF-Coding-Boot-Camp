@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Content!</title>
+</head>
+<body>
+
+  <h1>Drink Selection!</h1>
+  <hr>
+
+  <div id="drinkOptions"></div>
+
+  <script type="text/javascript">
+
+    var drinkList = [
+      "Coffee: $5",
+      "Espresso: $7",
+      "Cappuccino: $6",
+      "Latte: $4",
+      "Tea: $3",
+      "Ice Coffee: $6",
+      "Ice Espresso: $8",
+      "Ice Latte: $6",
+      "Ice Tea: $4"
+    ];
+
+    // The code below uses vanilla Javascript to render to the page.
+    // Use what you've learned about jQuery to rewrite this page using jQuery syntax.
+    // Hint: Don't forget to "incorporate" the jQuery CDN before you begin.
+    var drinkDiv = document.getElementById("drinkOptions");
+
+    for (var i = 0; i < drinkList.length; i++) {
+
+      var newDrinkDiv = document.createElement("div");
+
+      newDrinkDiv.innerHTML = drinkList[i];
+
+      drinkDiv.appendChild(newDrinkDiv);
+    }
+
+  </script>
+
+</body>
+</html>

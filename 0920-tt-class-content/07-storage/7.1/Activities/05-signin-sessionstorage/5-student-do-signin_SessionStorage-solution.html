@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sign-Up Today!</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+	
+	<br>
+
+	<!-- Jumbotron -->
+	<div class="jumbotron">
+		<h1 class="text-center">Sign-Up Today!</h1>
+	</div>
+
+	<div class="row">
+
+		<!-- Sign-Up Panel-->
+		<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">New Member Sign-Up</h3>
+				</div>
+				<div class="panel-body">
+					
+					<!-- Sign-up Form (note the various input "types")-->
+					<form role="form">
+					  <div class="form-group">
+					    <label for="text">Name:</label>
+					    <input type="text" class="form-control" id="nameinput">
+					  </div>
+					  <div class="form-group">
+					    <label for="text">Email:</label>
+					    <input type="email" class="form-control" id="emailinput">
+					  </div>
+					  <div class="form-group">
+					    <label for="text">Age:</label>
+					    <input type="number" class="form-control" id="ageinput">
+					  </div>
+					  <div class="form-group">
+						 <label for="comment">How did you hear about us?</label>
+						 <textarea class="form-control" rows="5" id="commentinput"></textarea>
+					   </div>
+					  <button type="submit" class="btn btn-default" id="addUser">Submit</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Most Recent Member Panel -->
+		<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Most Recent Member</h3>
+				</div>
+				<div class="panel-body" id="recentMember">
+					<h2 id="namedisplay">Jimmy John</h2>
+					<h4 id="emaildisplay">Email: jimmy@john.edu</h4>
+					<h4 id="agedisplay">Age: 27</h4>
+					<p id="commentdisplay">I'm signing up, because I want to spread sandwiches to the world.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Latest compiled and minified CSS & JS -->
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<script>
+
+// Capture Button Click
+$("#addUser").on("click", function() {
+
+	// Capture User Inputs and store into variables
+	var name = $('#nameinput').val().trim(); 
+	var email = $('#emailinput').val().trim(); 
+	var age = $('#ageinput').val().trim(); 
+	var comment = $('#commentinput').val().trim(); 
+
+	// Console log each of the user inputs to confirm you are receiving them
+	console.log(name);
+	console.log(email);
+	console.log(age);
+	console.log(comment);
+
+	// Replaces the content in the "recentMember" div
+	$("#recentMember").empty();
+
+	// Dump all of the new information into the relevant sections
+	$("#recentMember").append("<h1>" + name);
+	$("#recentMember").append("<h4>" + email);
+	$("#recentMember").append("<h4>" + age);
+	$("#recentMember").append("<p>" + comment);
+
+	// < -----------------------------------------------------------
+
+	// Clear sessionStorage
+	sessionStorage.clear();
+
+	// Store all content into sessionStorage
+	sessionStorage.setItem("name", name); 
+	sessionStorage.setItem("email", email);
+	sessionStorage.setItem("age", age);
+	sessionStorage.setItem("comment", comment);
+
+	// < -----------------------------------------------------------
+
+	// Don't refresh the page!
+	return false;
+});
+
+// <------------------------------------------------
+
+// By default display the content from sessionStorage
+$("#recentMember").empty();
+$("#recentMember").append("<h1>" + sessionStorage.getItem("name"));
+$("#recentMember").append("<h4>" + sessionStorage.getItem("email"));
+$("#recentMember").append("<h4>" + sessionStorage.getItem("age"));
+$("#recentMember").append("<p>" + sessionStorage.getItem("comment"));
+
+// <------------------------------------------------
+
+
+</script>
+	
+</body>
+</html>

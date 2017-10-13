@@ -1,0 +1,42 @@
+
+body{
+  font-size: 24px;
+  background-color: lightgrey;
+
+}
+
+h1{
+  text-align: center;
+  background-color: navy;
+  color:white;
+  padding:5%;
+}
+
+
+#left{
+  float:left;
+  width:75%;
+  background-color: cornflowerblue;
+  padding:2%;
+  box-sizing: border-box;
+}
+
+#right{
+  float:right;
+  width:25%;
+  background-color: #B20;
+  padding:2%;
+  box-sizing: border-box;
+  height:673px;
+  overflow: auto;
+}
+#helper{
+  clear:both;
+}
+
+
+#textwrapper{
+  width:1024px;
+  background-color: antiquewhite;
+  margin:0 auto;
+}

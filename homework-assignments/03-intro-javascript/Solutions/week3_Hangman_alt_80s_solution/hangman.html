@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Hangman Game</title>
+		<link rel="stylesheet" href="hangman.css">
+		<link rel="stylesheet" href="nice80sheader.css">
+
+	</head>
+	<body>		
+		<div id="wrapper">
+		  <h1 class="chrome">HANGMAN</h1>
+		  <h3 class="dreams">80s style</h3>
+		</div>
+
+		<div id="container">
+			<h2 id="music"></h2>
+			<div id="bandDiv"><img src="images/hangman-boardgame.jpg" alt="hangman board game from 80s"></div>
+			<div id="game-section">
+				<p>Press any key to get started!</p>
+				<div id="current-word-section">
+					<h3 class="section-title">Wins</h3>
+					<div id="wins"></div>
+				</div>
+				<div id="current-word-section">
+					<h3 class="section-title">Current Word</h3>
+					<div id="current-word"></div>
+				</div>
+				<div id="guesses-remaining-section">
+					<h3 class="section-title">Number of Guesses Remaining</h3>
+					<div id="guesses-remaining"></div>
+				</div>
+				<div id="guessed-letters-section">
+					<h3 class="section-title">Letters Already Guessed</h3>
+					<div id="guessed-letters"></div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="hangmanGame.js"></script>
+	</body>
+</html>

@@ -1,0 +1,98 @@
+<!-- Solution developed by Jasmine Li (Student in Rutgers Jan 16 - NB Class) -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Correct Color Picker</title>
+
+  <!-- Bootstrap File -->
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous'>
+
+  <!-- JQuery -->
+  <script src='https://code.jquery.com/jquery.js'></script>
+
+  <style>
+    #randTargetColor,
+    #colorPicker li {
+      font-size: 24px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class='container'>
+    <h2>Correct Color Picker</h2>
+    <p>Pick the <b>color</b> of the word shown from the list below it.</p>
+
+    <div class='panel panel-default'>
+      <div class='panel-heading'>
+        <h3 class='panel-title'>
+
+          <!-- Create random target color -->
+          <span id='randTargetColor'>
+          </span>
+
+        </h3>
+      </div>
+      <div class='panel-body'>
+
+        <!-- Create colors to pick -->
+        <ul class='list-unstyled' id='colorPicker'> 
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  
+  <script>
+
+    // Javascript function that wraps everything
+    $(document).ready(function(){
+
+      var colors = [];        // Array for words
+      var colorsOfText = [];  // Array for word colors
+      var targetColor;        // Target word
+      var targetColorOfText;  // Target word color
+
+      var colors = [
+      'brown',
+      'blue',
+      'magenta',
+      'teal',
+      'coral',
+      'black',
+      ];  
+
+      function randColor() {
+
+    
+      }
+
+      function createColorPicker() {
+
+      }
+
+      function clear() {
+
+      }
+
+      function reset() {
+     
+      }
+      
+      var userAnswer;
+
+      // Get id of element clicked by user
+      $( '#colorPicker' ).click(function(event) {
+
+      });
+
+      // Run game
+      reset();
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Basic Javascript Dump</title>
+</head>
+<body>
+
+<!-- Created an empty HTML div. Note that there is no content -->
+<div id="emptyDiv"></div>
+
+<script type="text/javascript">
+
+	// We then grabbed the empty div using Javascript and called it "targetDiv"
+	var targetDiv = document.getElementById("emptyDiv");
+
+	// We then used the Javascript method .innerHTML to change the content to "Hello friends!"
+	targetDiv.innerHTML = "Hello friends!"
+
+	// If we try to add to the div using the same .innerHTML method... It will just replace the old content
+	targetDiv.innerHTML = "A pleasure to meet you!"
+
+</script>
+
+</body>
+</html>

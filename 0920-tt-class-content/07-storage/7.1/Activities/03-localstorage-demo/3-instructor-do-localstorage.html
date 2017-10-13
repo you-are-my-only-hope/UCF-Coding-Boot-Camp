@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Local Storage Example</title>
+</head>
+<body>
+
+<!-- Title -->
+<h1>Guest Book</h1>
+
+<!-- Input Form -->
+<form>
+  <h2>Your Name: <input type="text" id="yourname"><input type="submit" value="Save" id="saveName"></h2>
+</form>
+
+<!-- Print Name -->
+<h1 id="greeting"></h1>
+
+
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+
+<!-- Script -->
+<script>
+
+// When users click "saveName"
+$("#saveName").on("click", function() {
+
+	// Clear the previous name in HTML 
+	$("#greeting").empty();
+
+	// Grab the User Input
+	var username = $('#yourname').val().trim();
+
+	// Clear the previous item in localStorage using localStorage.clear()
+	localStorage.clear(); // <----------------------------------------
+
+	// Store the username into localStorage using "localStorage.setItem" 
+	localStorage.setItem("name", username); // <----------------------------------------
+
+	// And display that name for the user using "localStorage.getItem" 
+	$("#greeting").append(localStorage.getItem("name") + " "); // <--------------------
+	
+	// This line prevents the page from refreshing when a user hits "enter".
+	return false;	
+});
+
+// By default (upon load) show the name stored in localStorage using "localStorage.getItem" 
+$("#greeting").append(localStorage.getItem("name")); //  <----------------------------------
+
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Animals</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <style>
+      body { background-color: #6A5; }
+      table, td {
+        border-width: 1px;
+        border-style: solid;
+        border-color: black;
+      }
+      table {
+        width: 500px;
+        background-color: antiquewhite;
+      }
+      td {
+        padding: 15px;
+        text-align: center;
+      }
+      button {
+        width: 250px;
+        height: 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      #active {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="buttons">
+      <button id="weightsort">Sort By Weight</button>
+      <button id="namesort">Sort By Name</button>
+    </div>
+    <table id="results">
+        <tr><th>Name</th><th>Num Legs</th><th>Class</th><th>Weight</th><th>But I'd Call It...</th></tr>
+    </table>
+    <script src="app.js"></script>
+  </body>
+</html>

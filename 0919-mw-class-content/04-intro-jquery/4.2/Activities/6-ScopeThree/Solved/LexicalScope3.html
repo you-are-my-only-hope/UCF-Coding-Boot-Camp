@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <title>lexicalScope</title>
+    </head>
+    <body style=''>
+        <script type='text/javascript'>
+        //EXAMPLE ONE global scope
+        var a = 1;
+        function one(){
+            alert('One: ' + a);
+        }
+
+        one(); // what will get alerted? (One: 1)
+
+        //EXAMPLE TWO local scope
+        function twotop() {
+            function two(a) {
+                alert('Two: ' + this.a);
+            }
+
+            two(a); // what will get alerted? (Two: 1)
+        }
+
+        twotop();
+
+        //EXAMPLE THREE local scope
+        var a = 5;
+        function three() {
+            var a = 3;
+            alert('Three: ' + a); // what will get alerted (Three: 3)
+        }
+
+        three();
+
+        // EXAMPLE FOUR:
+        function first(){
+            var a = 5;
+
+            function second(){
+                var a = 3;
+
+                function third(){
+                    alert('Four: ' + a);  // what will get alerted? (Four: 3)
+                }
+
+                third();
+            }
+
+            second();
+        }
+
+        first();
+        </script>
+    </body>
+</html>

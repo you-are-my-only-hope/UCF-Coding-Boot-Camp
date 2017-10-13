@@ -1,0 +1,57 @@
+/**
+ * Positioning Activity Solution (CSS)
+ *
+ * Note: In this activity, students will be creating these files from scratch. 
+ * This file is provided for you to guide your class after they finish the assignment. 
+ * Review this so you know exactly what you'll be showing your students 
+ **/
+ 
+* {
+  box-sizing: border-box;
+}
+body {
+	font-size: 24px;
+	line-height: 32px;
+	color: #333;
+}
+#fixed {
+	position: fixed;
+	background: #eee;
+	padding: 40px;
+	text-align: center;
+	margin: 0;
+	top: 0;
+	left: 0;
+}
+.wrapper {
+	width: 600px;
+	margin: 0 auto 0 auto;
+	padding: 20px;
+}
+h1 {
+	font-size: 36px;
+	line-height: 45px;
+	margin-bottom: 20px;
+}
+p {
+	font-size: 18px;
+	line-height: 28px;
+	margin-bottom: 20px;
+}
+#relative {
+	position: relative;
+	background: #eee;
+	padding: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+	height: 200px;
+}
+#absolute {
+	width: 250px;
+	position: absolute;
+	background: #999;
+	padding: 20px;
+	bottom: 0;
+	right: -30px;
+	text-align: center;
+}

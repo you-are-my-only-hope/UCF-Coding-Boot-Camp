@@ -1,0 +1,56 @@
+/**
+ * Media Query Style Exercise
+ **/
+
+/*
+	* 
+	* Add more styling to the CSS file such that 
+	*	the `@media screen` code creates padding and margins 
+	* for the two boxes when the page is below 768px.
+	*
+	* Note: This isn't easy. Just give it your best shot. 
+	*	Even if you don't get the exact solution, 
+	* but are able to better understand how media queries work, 
+	* that's a solid takeaway.
+*/
+
+/* Standard Rules */
+* {
+  box-sizing: border-box;
+}
+body {
+	background: #ccc;
+	font-size: 18px;
+	line-height: 27px;
+}
+.wrapper {
+	width: 1024px;
+	margin: 40px auto;
+}
+#main-content,
+#sidebar {
+	width: 500px;
+	padding: 30px;
+}
+#main-content {
+	float: left;
+	background: #fff;
+}
+#sidebar {
+	float: right;
+	background: #eee;
+}
+
+/* Rules for screen widths at 768px or lower */
+@media screen and (max-width: 768px) {
+
+	body {
+		background-color: #333;
+	}
+
+	.wrapper {
+		width: 600px;
+	}
+}
+
+/* TODO: Add in more screen sizes! */

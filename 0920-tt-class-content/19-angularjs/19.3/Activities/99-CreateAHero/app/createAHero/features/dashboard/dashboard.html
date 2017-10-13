@@ -1,0 +1,30 @@
+<a ui-sref="home">Go to home</a>
+
+<h2>Create A Hero's Story!</h2>
+
+<form>
+    <!-- ng-model is a built in Angular directive which ties the value of the textbox to the variable -->
+    Name: <input type="test" name="heroName" ng-model="DashboardVM.story.heroName">
+    <br>
+    Gender: <input type="radio" value="male" ng-model="DashboardVM.story.heroGender"> Male <input type="radio" value="female" ng-model="DashboardVM.story.heroGender"> Female
+    <br>
+    City: <input type="text" name="city" ng-model="DashboardVM.story.heroCity">
+    <br>
+    Fights A: <input type="text" name="fights" ng-model="DashboardVM.story.heroFights">
+    <br>
+    Outcome: <input type="radio" value="win" ng-model="DashboardVM.story.heroFightOutcome"> Wins <input type="radio" value="lost" ng-model="DashboardVM.story.heroFightOutcome"> Lost
+    <br>
+    <input type="button" value="Save" ng-click="DashboardVM.addBook()">
+</form>
+<br>
+<hr>
+<br>
+
+<story-content story-data="DashboardVM.story"></story-content>
+
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors Part 1</title>
+</head>
+<body>
+
+<div id="game">
+	<p>Press r, p or s to start playing</p>
+</div>
+
+<script type="text/javascript">
+
+var computerChoices = ['r', 'p', 's'];
+var wins = 0;
+var losses = 0;
+var ties = 0;
+
+document.onkeyup = function(event) {
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+	var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+	if ((userGuess == 'r') || (userGuess == 'p') || (userGuess == 's')){
+
+		if ((userGuess == 'r') && (computerGuess == 's')){
+			wins++;
+		}
+
+		if ((userGuess == 'r') && (computerGuess == 'p')){
+			losses++;
+		}
+
+		if ((userGuess == 's') && (computerGuess == 'r')){
+			losses++;
+		}
+
+		if ((userGuess == 's') && (computerGuess == 'p')){
+			wins++;
+		}
+
+		if ((userGuess == 'p') && (computerGuess == 'r')){
+			wins++;
+		}
+
+		if ((userGuess == 'p') && (computerGuess == 's')){
+			losses++;
+		}
+
+		if (userGuess == computerGuess){
+			ties++;
+		}  
+
+		var html = "<p>Press r, p or s to start playing</p>" +
+		"<p>wins: " + 
+		wins + 
+		"</p>" +
+		"<p>losses: " + 
+		losses + 
+		"</p>" +
+		"<p>ties: " + 
+		ties + 
+		"</p>";
+
+		document.querySelector('#game').innerHTML = html;
+
+	}
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basic Javascript Dump</title>
+</head>
+  <body>
+
+    <div id="emptyDiv"></div>
+
+    <script type="text/javascript">
+
+      var targetDiv = document.getElementById("emptyDiv");
+
+      targetDiv.innerHTML = "Hello friends!";
+
+      // If we try to add to the div using the same .innerHTML method... it just replaces the old content.
+      targetDiv.innerHTML = "A pleasure to meet you!";
+
+    </script>
+
+  </body>
+</html>
